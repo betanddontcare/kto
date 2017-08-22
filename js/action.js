@@ -66,20 +66,58 @@ $(document).ready(function(){
                 $('.transporter .r42').removeClass('r42').addClass('t-42');
                 $('.triangle:lt(30)').removeClass('transparent').addClass('glimmer');
                 $('.triangle:gt(34):not(.r42)').removeClass('transparent').addClass('glimmer');
-            })    
+            })   
 //SECOND H3 CREATING
             setTimeout(function() {
                 
                 $(".description").append('<h3>' + data.engine +'</h3>');
                 $('h3:eq(1)').text().length * speed + speed;
                 typeEffect($('h3:eq(1)'), speed);
-            }, 2000);
+//SECOND H3 ACTION AFTER MOUSE OVER
+                $('h3:eq(1)').hover(function(){
+                
+                    clearInterval(shimmer);
+                    $(this).addClass('bigger');    
+                    $('.triangle').css('animation-duration' , '0s');
+                    $('.transporter .t-22').removeClass('t-22').addClass('r22');
+                    $('.transporter .t-23').removeClass('t-23').addClass('r23');
+                    $('.triangle:lt(21)').removeClass('glimmer').addClass('transparent');
+                    $('.triangle:gt(22)').removeClass('glimmer').addClass('transparent'); 
+                })
+//SECOND H3 ACTION AFTER MOUSE OUT
+                $('h3:eq(1)').mouseout(function(){
+                
+                    $(this).removeClass('bigger');
+                    $('.transporter .r22').removeClass('r22').addClass('t-22');
+                    $('.transporter .r23').removeClass('r23').addClass('t-23');
+                    $('.triangle:lt(21)').removeClass('transparent').addClass('glimmer');
+                    $('.triangle:gt(22)').removeClass('transparent').addClass('glimmer'); 
+                }) 
+            }, 2000);          
 //THIRD H3 CREATING
             setTimeout(function() {
                 
             $(".description").append('<h3>' + data.suspension +'</h3>');
             $('h3:eq(2)').text().length * speed + speed;
-            typeEffect($('h3:eq(2)'), speed);    
+            typeEffect($('h3:eq(2)'), speed);   
+//THIRD H3 ACTION AFTER MOUSE OVER
+                $('h3:eq(2)').hover(function(){
+                
+                    clearInterval(shimmer);
+                    $(this).addClass('bigger');    
+                    var light = [51, 52, 55, 56];
+                    for(x=0; x <= light.length; x++) {
+	                   $('.triangle:eq('+ light[x] + ')').addClass('rolling-light');
+                    }
+
+                    var dark = [4, 5, 50, 53, 54, 57];
+                    for(x=0; x <= dark.length; x++) {
+                    $('.triangle:eq('+ dark[x] + ')').addClass('rolling-dark');
+
+}
+                   
+                    
+                })
             }, 4000);
         }, 5000);
 	})
