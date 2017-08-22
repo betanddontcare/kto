@@ -12,6 +12,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.1;
     background-color: rgb(210, 212, 156);
+    cursor: default;
 }
 
 #wrapper {
@@ -119,6 +120,10 @@ body {
 
 .rolling-dark {
     animation: rolling-dark 0.1s linear 0.1s infinite normal;
+}
+
+.shudder {
+    animation: shudder 0.3s ease-in infinite normal;
 }
 
 
@@ -500,7 +505,7 @@ body {
 .transporter .t-52,
 .transporter .t-53,
 .transporter .t-56,
-.transporter .t-57 {background-color: #191818;}
+.transporter .t-57 {background-color: #212020;}
 
 /* HEADLIGHT YELLOW */
 .transporter .t-14,
@@ -651,11 +656,27 @@ body {
 }
 
 @keyframes rolling-light {
-    0% {background-color: #191818;}
-    100% {background-color: #000000;}
+    0% {background-color: #212020;
+        transform: translateY(0);}
+    100% {background-color: #000000;
+        transform: translateY(2px);}
 }
 
 @keyframes rolling-dark {
-    0% {background-color: #000000;}
-    100% {background-color: #191818;}
+    0% {background-color: #000000;
+        transform: translateY(0);}
+    100% {background-color: #212020;
+        transform: translateY(2px);}
 }
+
+@keyframes shudder {
+    0% {transform: translateX(0px);
+        transform: rotate(0deg);}
+    25% {transform: translateX(5px);
+        transform: rotate(1deg);}
+    50% {transform: translateX(0px);
+        transform: rotate(0deg)}
+    75% {transform: translateX(-5px);
+        transform: rotate(-1deg);}
+    100% {transform: translateX(0px);
+        transform: rotate(0deg)}
