@@ -26,7 +26,6 @@ body {
 	text-align: center;
 }
 
-
 .head-to-left {
     width: 100%;
     margin: 0 auto;
@@ -124,6 +123,22 @@ body {
 
 .shudder {
     animation: shudder 0.3s ease-in infinite normal;
+}
+
+.hatch-open {
+    animation: hatch-open 1s ease-in running;
+}
+
+.soldier-up {
+    animation: soldier-up 2.5s ease-out running;
+}
+
+.hatch-close {
+    animation: hatch-close 2s ease-in forwards; 
+}
+
+.soldier-down {
+    animation: soldier-down 1s ease-out forwards;
 }
 
 
@@ -345,12 +360,30 @@ body {
 /* ENGINE PANEL OPEN UP */
 .r22 {-webkit-clip-path: polygon(25% 40%, 75% 40%, 28% 60%);
         transition: 2.55s ease-in;
-        background-color: #215d17;
-}
+        background-color: #215d17;}
 .r23 {-webkit-clip-path: polygon(28% 60%, 75% 40%, 72% 60%);
         transition: 2.55s ease-in;
-        background-color: #0c3e03;
-}
+        background-color: #0c3e03;}
+
+/* COMMANDER SALUTE */
+.transporter .t-59 {-webkit-clip-path: polygon(50% 25%, 57.5% 17.5%, 50% 10%, 42.5% 17.5%);
+                    z-index: -1;}
+.transporter .t-60 {-webkit-clip-path: polygon(50% 25%, 50% 22%, 44% 25%);
+                   z-index: -1;}
+.transporter .t-61 {-webkit-clip-path: polygon(50% 25%, 56% 25%, 50% 22%);
+                    z-index: -1;}
+.transporter .t-62 {-webkit-clip-path: polygon(40% 22%, 42% 22%, 47% 19%);
+                    z-index: 1;}
+.transporter .t-63 {-webkit-clip-path: polygon(40% 22%, 50% 22%, 50% 25%, 47% 25%);
+                    z-index: -1;}
+.transporter .t-64 {-webkit-clip-path: polygon(50% 22%, 48% 20%, 52% 20%);
+                    z-index: -1;}
+.transporter .t-65 {-webkit-clip-path: polygon(48% 19%, 48% 20%, 52% 20%, 52% 19%);
+                    z-index: -1;}
+.transporter .t-66 {-webkit-clip-path: polygon(47% 19%, 48% 17%, 52% 17%, 53% 19%);
+                    z-index: -1;}
+.transporter .t-67 {-webkit-clip-path: polygon(48% 17%, 52% 17%, 50% 16%);
+                    z-index: -1;}
 
 /* HEADLIGHT POLYGON CONSTRUCTION */
 .headlight .t-1 {-webkit-clip-path: polygon(0 80%, 15% 35%, 15% 45%);}
@@ -476,11 +509,12 @@ body {
 .t-55,
 .t-56,
 .t-57,
-.t-58 {background-color: black;}
+.t-58,
+.t-60 {background-color: black;}
 
 
 /* ~~~~KTO VEHICLE FRONT COLOURS~~~~ */
-/* MIRRORS & HULL & TIRES COMPLETELY BLACK */
+/* COMPLETELY BLACK */
 .transporter .t-2,
 .transporter .t-4,
 .transporter .t-6,
@@ -490,7 +524,7 @@ body {
 .transporter .t-41,
 .transporter .t-42 {background-color: #000000;}
 
-/* MIRRORS & HULL & TIRES LIGHT BLACK */
+/* LIGHT BLACK */
 .transporter .t-1,
 .transporter .t-3,
 .transporter .t-5,
@@ -507,57 +541,68 @@ body {
 .transporter .t-56,
 .transporter .t-57 {background-color: #212020;}
 
-/* HEADLIGHT YELLOW */
+/* YELLOW */
 .transporter .t-14,
 .transporter .t-17 {background-color: #efd992;}
 
-/* HEADLIGHT GREY */
+/* GREY 1 */
 .transporter .t-13,
 .transporter .t-19 {background-color: #d3cdb9;}
 
-/* HEADLIGHT WHITE */
+/* GREY 2 */
+.transporter .t-36,
+.transporter .t-39 {background-color: #3e3e3d;}
+
+/* WHITE */
 .transporter .t-12,
 .transporter .t-18 {background-color: #ebe8de;}
 
-/* HULL DARK GREEN 1 */
+/* DARK GREEN 1 */
 .transporter .t-9,
 .transporter .t-11,
 .transporter .t-28,
-.transporter .t-33 {background-color: #032901;}
+.transporter .t-33,
+.transporter .t-59 {background-color: #032901;}
 
-/* HULL DARK GREEN 2 */
+/* DARK GREEN 2 */
 .transporter .t-16,
 .transporter .t-25 {background-color: #134603;}
 
-/* HULL GREEN 1 */
+/* GREEN 1 */
 .transporter .t-10,
 .transporter .t-23,
 .transporter .t-27,
 .transporter .t-32 {background-color: #0c3e03;}
 
-/* HULL GREEN 2 */
+/* GREEN 2 */
 .transporter .t-24,
 .transporter .t-21 {background-color: #164e05;}
 
-/* HULL LIGHT GREEN 1 */
+/* LIGHT GREEN 1 */
 .transporter .t-8,
 .transporter .t-15,
 .transporter .t-22,
 .transporter .t-26,
 .transporter .t-31 {background-color: #215d17;}
 
-/* HULL LIGHT GREEN 2 */
+/* LIGHT GREEN 2 */
 .transporter .t-7,
 .transporter .t-20,
-.transporter .t-21 {background-color: #356a07;}
+.transporter .t-21,
+.transporter .t-60,
+.transporter .t-61,
+.transporter .t-62,
+.transporter .t-63,
+.transporter .t-66,
+.transporter .t-67 {background-color: #356a07;}
 
-/* MIRRORS & HULL GREY */
-.transporter .t-36,
-.transporter .t-39 {background-color: #3e3e3d;}
+/* PINK */
+.transporter .t-64,
+.transporter .t-65 {background-color: #c38ba7;}
 
 
 /* ~~~~KTO PERSPECTIVE COLOURS~~~~ */
-/* HULL LIGHT GREEN */
+/* LIGHT GREEN */
 .headlight .t-5,
 .headlight .t-49,
 .headlight .t-51,
@@ -565,7 +610,7 @@ body {
 .headlight .t-54,
 .headlight .t-55 {background-color: #303b00;}
 
-/* HULL DARK GREEN */
+/* DARK GREEN */
 .headlight .t-1,
 .headlight .t-3,
 .headlight .t-4,
@@ -575,12 +620,12 @@ body {
 .headlight .t-57,
 .headlight .t-58 {background-color: #272e0b;}
 
-/* HEADLIGHT DARK GREY */
+/* DARK GREY */
 .headlight .t-7,
 .headlight .t-25,
 .headlight .t-32 {background-color: #343434;}
 
-/* HEADLIGHT STEEL GREY */
+/* STEEL GREY */
 .headlight .t-2,
 .headlight .t-8,
 .headlight .t-9,
@@ -591,7 +636,7 @@ body {
 .headlight .t-31,
 .headlight .t-33 {background-color: #5f6060;}
 
-/* HEADLIGHT GREY */
+/* GREY */
 .headlight .t-10,
 .headlight .t-11,
 .headlight .t-12,
@@ -613,7 +658,7 @@ body {
 .headlight .t-48,
 .headlight .t-50 {background-color: #808080;}
 
-/* BULB LIGHT GREY */
+/* LIGHT GREY */
 .headlight .t-17,
 .headlight .t-18,
 .headlight .t-19,
@@ -625,7 +670,7 @@ body {
 .headlight .t-38,
 .headlight .t-39 {background-color: #cbcbcb;}
 
-/* BULB SNOW */
+/* SNOW WHITE */
 .headlight .t-20,
 .headlight .t-35 {background-color: #ffffff;}
 
@@ -680,3 +725,53 @@ body {
         transform: rotate(-1deg);}
     100% {transform: translateX(0px);
         transform: rotate(0deg)}
+}
+
+@keyframes hatch-open {
+    0% {transform-origin: 0 25%;
+        transform: scaleY(0);}
+    100% {transform-origin: 0 25%;
+        transform: scaleY(1);}
+}
+
+@keyframes hatch-close {
+    0% {transform-origin: 0 25%;
+        transform: scaleY(1);}
+    75% {transform-origin: 0 25%;
+        transform: scaleY(1);}
+    100% {transform-origin: 0 25%;
+        transform: scaleY(0);}
+}
+
+@keyframes soldier-up {
+    0% {transform-origin: 0 25%;
+        transform: translateY(9%);
+        opacity: 0;}
+    50% {transform-origin: 0 25%;
+        transform: translateY(9%);
+        opacity: 0;}
+    85% {transform-origin: 0 25%;
+        transform: translateY(9%);
+        opacity: 1;}
+    100% {transform-origin: 0 25%;
+        transform: translateY(0%);
+        opacity: 1;}
+}
+@keyframes soldier-down {
+    0% {transform-origin: 0 25%;
+        transform: translateY(0%);
+        opacity: 1;}
+    50% {transform-origin: 0 25%;
+        transform: translateY(9%);
+        opacity: 1;}
+    60% {transform-origin: 0 25%;
+        transform: translateY(9%);
+        opacity: 0;}
+    85% {transform-origin: 0 25%;
+        transform: translateY(9%);
+        opacity: 0;}
+    100% {transform-origin: 0 25%;
+        transform: translateY(9%);
+        opacity: 0;}
+}
+
