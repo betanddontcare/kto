@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    
 //CLICK ACTION
     $("#transporter").click(function(){
         
@@ -39,31 +39,38 @@ $(document).ready(function(){
                 suspension: '8×8 wheeled',
                 crew: '3 + 8 crew'
                         }; 
-//FIRST H3 CREATING
+//ANIMATIONS           
             var turret = [31, 32, 33, 34, 35, 42];
             $(".description").append('<h3>' + data.cannon +'</h3>');
             $('h3:eq(0)').text().length * speed + speed;
             typeEffect($('h3:eq(0)'), speed);
-//FIRST H3 ACTION AFTER MOUSE OVER
-            $('h3:eq(0)').hover(function(){
-                
-                $(this).addClass('bigger');   
+            isStarted = true;
+            var first = $('h3:eq(0)');
+            first.click(function(){
+                turretRotation();
+            });
+           
+            function turretRotation(){
+                if (isStarted == true){
+                     first.addClass('bigger');  
+                    $('h3:gt(0)').addClass('blur');
                 for (x=0; x <= turret.length; x++){
                     $('.transporter .t-'+ turret[x] + '').removeClass('t-'+ turret[x] + '').addClass('r'+ turret[x] + '');
                     }
                 $('.triangle:lt(30)').addClass('transparent');
-                $('.triangle:gt(34):not(.r42)').addClass('transparent');  
-            })
-//FIRST H3 ACTION AFTER MOUSE OUT
-            $('h3:eq(0)').mouseout(function(){
-                
-                $(this).removeClass('bigger');
+                $('.triangle:gt(34):not(.r42)').addClass('transparent'); 
+                isStarted = false;
+                } else {
+                        first.removeClass('bigger');
+                    $('h3:gt(0)').removeClass('blur');
                 for (x=0; x <= turret.length; x++){
                         $('.transporter .r'+ turret[x] + '').removeClass('r'+ turret[x] + '').addClass('t-'+ turret[x] + '');
                     }
                 $('.triangle:lt(58):not(.r31 , .r32 , .r33 , .r34 , .r35 , r42)').removeClass('transparent');
-            })   
-//SECOND H3 CREATING
+                    isStarted = true;
+                }
+            }      
+
             $(".description").append('<h3>' +'</h3>');
             setTimeout(function(){
                 
@@ -71,33 +78,43 @@ $(document).ready(function(){
                 $('h3:eq(1)').text().length * speed + speed;
                 typeEffect($('h3:eq(1)'), speed);
             }, 2000);
-//SECOND H3 ACTION AFTER MOUSE OVER
-            $('h3:eq(1)').hover(function(){
-                
-                $(this).addClass('bigger');    
+            var second = $('h3:eq(1)');
+             second.click(function(){
+                panelOpen();
+            });
+           function panelOpen(){
+               if (isStarted == true){
+                   second.addClass('bigger');  
+                   $('h3:gt(1) , h3:eq(0)').addClass('blur');
                 $('.transporter .t-22').removeClass('t-22').addClass('r22');
                 $('.transporter .t-23').removeClass('t-23').addClass('r23');
                 $('.triangle:lt(58):not(.r22 , .r23)').addClass('transparent'); 
-            })
-//SECOND H3 ACTION AFTER MOUSE OUT
-            $('h3:eq(1)').mouseout(function(){
-                
-                $(this).removeClass('bigger');
+                   isStarted = false;
+               } else {
+                     second.removeClass('bigger');
+                   $('h3:gt(1) , h3:eq(0)').removeClass('blur');
                 $('.transporter .r22').removeClass('r22').addClass('t-22');
                 $('.transporter .r23').removeClass('r23').addClass('t-23');
                 $('.triangle:lt(58):not(.t-22 , .t-23)').removeClass('transparent');
-            })  
-//THIRD H3 CREATING  
+                   isStarted = true;
+               }
+           }      
+
             $(".description").append('<h3>' +'</h3>');
             setTimeout(function(){
                 $('h3:eq(2)').append(data.suspension);
                 $('h3:eq(2)').text().length * speed + speed;
                 typeEffect($('h3:eq(2)'), speed); 
             }, 4000);       
-//THIRD H3 ACTION AFTER MOUSE OVER
-            $('h3:eq(2)').hover(function(){
-                
-                $(this).addClass('bigger');   
+
+             var third = $('h3:eq(2)');
+            third.click(function(){
+                crazyDriver();
+            });
+            function crazyDriver(){
+                if (isStarted == true){
+                    third.addClass('bigger'); 
+                    $('h3:lt(2) , h3:eq(3)').addClass('blur');
                 var light = [0, 4, 44, 45, 48, 49, 51, 52, 55, 56];
                 for(x=0; x <= light.length; x++) {                  
                     $('.triangle:eq('+ light[x] + ')').addClass('rolling-light');
@@ -107,12 +124,11 @@ $(document).ready(function(){
                     $('.triangle:eq('+ dark[x] + ')').addClass('rolling-dark');
                     $('.triangle:lt(42):not(.t-1 , .t-2 , .t-5 , .t-6)').addClass('shudder');
                 }
-                    $('.triangle:lt(42):not(.t-1 , .t-2 , .t-5 , .t-6)').addClass('transparent');    
-            })
-//THIRD H3 ACTION AFTER MOUSE OUT
-            $('h3:eq(2)').mouseout(function(){
-                  
-                $(this).removeClass('bigger');
+                    $('.triangle:lt(42):not(.t-1 , .t-2 , .t-5 , .t-6)').addClass('transparent'); 
+                    isStarted = false;
+                } else {
+                    third.removeClass('bigger');
+                    $('h3:lt(2) , h3:eq(3)').removeClass('blur');
                 var light = [0, 4, 44, 45, 48, 49, 51, 52, 55, 56];
                 for(x=0; x <= light.length; x++) {                  
                     $('.triangle:eq('+ light[x] + ')').removeClass('rolling-light');
@@ -122,8 +138,10 @@ $(document).ready(function(){
                     $('.triangle:eq('+ dark[x] + ')').removeClass('rolling-dark');
                 }
                 $('.triangle:lt(42):not(.t-1 , .t-2 , .t-5 , .t-6)').removeClass('transparent').removeClass('shudder');
-            }) 
-//FOURTH H3 CREATING
+                    isStarted = true;
+                }
+            }
+
             $(".description").append('<h3>' +'</h3>');
             setTimeout(function(){
                 
@@ -131,9 +149,15 @@ $(document).ready(function(){
                 $('h3:eq(3)').text().length * speed + speed;
                 typeEffect($('h3:eq(3)'), speed);
                 }, 5000);
-//FOURTH H3 ACTION AFTER MOUSE OVER
-                $('h3:eq(3)').hover(function(){
-                    $(this).addClass('bigger'); 
+
+             var fourth = $('h3:eq(3)');
+             fourth.click(function(){
+                rogerThat();
+            });
+            function rogerThat(){
+               if (isStarted == true){
+                    fourth.addClass('bigger'); 
+                   $('h3:lt(3)').addClass('blur');
                     $('.main-stage').append('<div class="triangle t-59">' + '</div>');
                     $('.transporter .t-59').addClass('hatch-open');
                     var salute = [60, 61, 64, 65, 66, 67];
@@ -148,11 +172,10 @@ $(document).ready(function(){
                         $('.t-60').removeClass('t-60').addClass('t-63');
                     }, 3000);
                     $('.triangle:lt(58):not(.t-31 , .t-32 , .t-33)').addClass('transparent');
-                })
-//FOURTH H3 ACTION AFTER MOUSE OUT              
-                $('h3:eq(3)').mouseout(function(){
-                    
-                    $(this).removeClass('bigger');
+                   isStarted = false;
+              } else {
+                    fourth.removeClass('bigger');
+                  $('h3:lt(3)').removeClass('blur');
                     clearTimeout(saluteDelay);
                     var salute = [60, 61, 63, 64, 65, 66, 67];
                     for(x=0; x < salute.length; x++){       
@@ -163,7 +186,9 @@ $(document).ready(function(){
                     $('.empty').remove();
                     $('.transporter .t-59').removeClass('hatch-open').addClass('hatch-close');
                     $('.triangle:lt(58)').removeClass('transparent');
-                })    
+                  isStarted = true;
+              }
+            }  
         }, 5000);
 	})
 //INTERACTIVE TRIANGLES (ROTATION EFFECT)
